@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import learnbyteaching.todos.repositories.dao.TodoRepository;
 import learnbyteaching.todos.repositories.vo.TodoItem;
-
+// CORS 설정 : 원칙적으로는 허용할 도메인을 정확하게 명시해야 한다.
+/* @CrossOrigin(origins="*", // 모든 호스트로 부터의 오리진 허가 
+				methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE}) */
+//-> Global CORS 정첵으로 위임
 @RequestMapping("/api/todos")
 @RestController // @Controller + ResponseBody
 public class TodoApiController {
